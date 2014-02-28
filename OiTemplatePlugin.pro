@@ -78,7 +78,8 @@ SOURCES += p_factory.cpp \
     src/geometry/scalarentitydistance.cpp \
     src/geometry/scalarentitymeasurementseries.cpp \
     src/geometry/scalarentitytemperature.cpp \
-    src/geometry/sphere.cpp
+    src/geometry/sphere.cpp \
+    testfit.cpp
 
 HEADERS += p_factory.h \
     lib/openIndyLib/include/global.h \
@@ -132,6 +133,7 @@ HEADERS += p_factory.h \
     src/plugin/pi_objecttransformation.h \
     src/plugin/pi_oiplugin.h \
     src/plugin/pi_systemtransformation.h \
-    src/plugin/pi_totalstation.h
+    src/plugin/pi_totalstation.h \
+    testfit.h
 
 OTHER_FILES += metaInfo.json

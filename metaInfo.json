@@ -1,13 +1,13 @@
 {
     "isOiPlugin": true,
 
-    "name"  : "OpenIndy Plugin Template",
-    "pluginVersion" : "0.0.1",
+    "name"  : "OpenIndy Plugin Kern",
+    "pluginVersion" : "1.0.0",
     "author"  : "",
     "compiler" : "MVSC 64bit",
     "operatingSystem" : "windows",
 
-    "description" : "",
+    "description" : "Test",
 
     "dependencies" : false,
     "libPaths" : [
