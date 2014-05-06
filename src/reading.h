@@ -3,7 +3,6 @@
 
 #include <QDateTime>
 #include <QtCore/qmath.h>
-#include "console.h"
 #include "configuration.h"
 #include "oivec.h"
 
@@ -81,9 +80,6 @@ public:
     Sensor *instrument;
     Observation *obs;
 
-    //OiVec test;
-    //double test;
-
     sReadingPolar rPolar;
     sReadingCartesian rCartesian;
     sReadingDirection rDirection;
@@ -91,7 +87,6 @@ public:
     sReadingTemperature rTemperature;
     sReadingUndefined rUndefined;
     sReadingLevel rLevel;
-
 
     void toCartesian();
     static OiVec toCartesian(double, double, double);
