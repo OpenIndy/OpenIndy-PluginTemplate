@@ -32,6 +32,12 @@ Here you can find an example:
 - [OiTest testFit.h](https://github.com/OpenIndy/OiPluginTemplate/blob/master/pluginDebugger/oitestTestFit.h)
 - [OiTest testFit.cpp](https://github.com/OpenIndy/OiPluginTemplate/blob/master/pluginDebugger/oitestTestFit.cpp)
 
+build -> copy dependencies(lib) to `bin/debug` or `bin/release`  
+blas (lib\armadillo-3.910.0\examples)  
+lapack (lib\armadillo-3.910.0\examples)  
+openIndyLib (lib\openIndyLib\bin)  
+
+
 fork and upstream
 ------------------
 If you want to develop your plugin on github, then simply [fork](https://github.com/OpenIndy/OiPluginTemplate/wiki/Get-Started) this repo!
