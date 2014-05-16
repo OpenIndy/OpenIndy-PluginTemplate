@@ -4,6 +4,9 @@
 #include <QObject>
 #include <QMetaEnum>
 #include <QMetaObject>
+#include <QStringList>
+#include <QDebug>
+#include "unitconverter.h"
 
 /*!
  * \brief The Configuration class

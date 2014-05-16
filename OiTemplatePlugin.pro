@@ -80,7 +80,8 @@ SOURCES += p_factory.cpp \
     src/geometry/ellipsoid.cpp \
     src/geometry/cylinder.cpp \
     src/geometry/cone.cpp \
-    src/geometry/circle.cpp
+    src/geometry/circle.cpp \
+    src/sensorlistener.cpp
 
 HEADERS += p_factory.h \
     lib/openIndyLib/include/global.h \
@@ -136,6 +137,7 @@ HEADERS += p_factory.h \
     src/plugin/pi_lasertracker.h \
     src/plugin/pi_geodeticfunction.h \
     src/plugin/pi_fitfunction.h \
-    src/plugin/pi_constructfunction.h
+    src/plugin/pi_constructfunction.h \
+    src/sensorlistener.h
 
 OTHER_FILES += metaInfo.json
