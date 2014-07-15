@@ -5,6 +5,7 @@
 
 Reading::Reading()
 {
+    this->measuredAt = QDateTime::currentDateTime();
 }
 
 Reading::~Reading(){
@@ -51,6 +52,28 @@ OiVec Reading::toPolar(double x, double y, double z){
     g.setAt( 2, s);
     g.setAt( 3, 1.0 );
     return g;
+}
+
+void Reading::makeBackup()
+{
+    this->backupPolar = this->rPolar;
+    this->backupCartesian = this->rCartesian;
+    this->backupDirection = this->rDirection;
+    this->backupDistance = this->rDistance;
+    this->backupTemperature = this->rTemperature;
+    this->backupUndefined = this->rUndefined;
+    this->backupLevel = this->rLevel;
+}
+
+void Reading::restoreBackup()
+{
+    this->rPolar = this->backupPolar;
+    this->rCartesian = this->backupCartesian;
+    this->rDirection = this->backupDirection;
+    this->rDistance = this->backupDistance;
+    this->rTemperature = this->backupTemperature;
+    this->rUndefined = this->backupUndefined;
+    this->rLevel = this->backupLevel;
 }
 
 /*!

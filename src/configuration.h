@@ -6,6 +6,8 @@
 #include <QMetaObject>
 #include <QStringList>
 #include <QDebug>
+#include <QtGui/QPixmap>
+
 #include "unitconverter.h"
 
 /*!
@@ -58,7 +60,7 @@ public:
     static QString sLevel;
 
     static QString sObservation;
-
+/*
     static QString sSteel;
     static QString sAluminum;
     static QString sPlumb;
@@ -78,6 +80,7 @@ public:
     static double dBrass;
     static double dZinc;
     static double dPlatinum;
+    */
 
     enum eColor{
         red,
@@ -146,7 +149,10 @@ public:
         eReadingCartesianElement,
         eReadingPolarElement,
         eReadingDistanceElement,
-        eReadingDirectionElement
+        eReadingDirectionElement,
+        eReadingTemperatureElement,
+        eReadingLevelElement,
+        eScalarEntityMeasurementSeriesElement
     };
 
     enum SensorFunctionalities{
@@ -170,26 +176,17 @@ public:
         eSerial
     };
 
-    enum Materials{
-        eSteel,
-        eAluminum,
-        ePlumb,
-        eIron,
-        eGrayCastIron,
-        eCopper,
-        eBrass,
-        eZinc,
-        ePlatinum
-    };
-
     static int idCount;
 
     static int generateID();
 
-    static Configuration::ElementTypes getElementTypeEnum(QString s);
-    static QString getElementTypeString(Configuration::ElementTypes e);
-    static double getExpansionCoefficient(QString material);
-    static double getExpansionCoefficient(Configuration::Materials material);
+    static Configuration::ElementTypes getElementTypeEnum(QString name);
+    static Configuration::FeatureTypes getFeatureTypeEnum(QString name);
+    static QString getElementTypeString(Configuration::ElementTypes type);
+    static QString getFeatureTypeString(Configuration::FeatureTypes type);
+
+    static QPixmap getFeatureIcon(Configuration::FeatureTypes featureType);
+    static QPixmap getElementIcon(Configuration::ElementTypes elementType);
 };
 
 #endif // CONFIGURATION_H

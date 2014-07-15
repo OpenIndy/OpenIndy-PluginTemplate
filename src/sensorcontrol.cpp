@@ -56,8 +56,8 @@ void SensorControl::measure(Geometry* geom,bool isActiveCoordSys){
        return;
     }
 
-
-    QList<Reading*> readings = instrument->measure(&(geom->getMeasurementConfig()));
+    MeasurementConfig mconfig = geom->getMeasurementConfig();
+    QList<Reading*> readings = instrument->measure(&mconfig);
 
     qDebug() << "count readings" << readings.size();
     if(readings.size() == 0){
@@ -472,20 +472,6 @@ void SensorControl::disconnectSensor(){
 
         instrumentListener->isStreamActive = false;
 
-        /*QTime timer;
-
-        timer.start();
-
-        while(instrumentListener->isStreamFinished){
-
-            if(timer.elapsed()>10000){
-                listenerThread.quit();
-                listenerThread.wait();
-                listenerThread.start();
-                this->myEmitter.sendString("timeout - stream failed");
-                return false;
-            }
-        }*/
 
         listenerThread.quit();
 
@@ -545,7 +531,6 @@ void SensorControl::disconnectSensor(){
 void SensorControl::saveReading(Reading* r, Geometry* geom, bool isActiveCoordSys){
 
     r->id = Configuration::generateID();
-    r->measuredAt = QDateTime::currentDateTime();
 
     switch(geom->getMeasurementConfig().typeOfReading){
         case(Configuration::ePolar) :{
@@ -736,6 +721,7 @@ void SensorControl::saveReading(Reading* r, Geometry* geom, bool isActiveCoordSy
         }
     }
 
+    r->makeBackup();
 
 }
 
