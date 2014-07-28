@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       -= gui
+QT += gui
 QT += serialport
 
 TEMPLATE = lib
@@ -38,7 +38,9 @@ DEPENDPATH += $$PWD/lib/openIndyLib/bin/release
 INCLUDEPATH += $$PWD
 INCLUDEPATH += $$PWD/src
 INCLUDEPATH += $$PWD/src/geometry
+INCLUDEPATH += $$PWD/src/oiemitter
 INCLUDEPATH += $$PWD/src/plugin
+INCLUDEPATH += $$PWD/src/simulation
 INCLUDEPATH += $$PWD/lib/openIndyLib/include
 
 SOURCES += p_factory.cpp \
@@ -47,13 +49,13 @@ SOURCES += p_factory.cpp \
     src/trafoparam.cpp \
     src/statistic.cpp \
     src/station.cpp \
+    src/sensorlistener.cpp \
     src/sensorcontrol.cpp \
     src/sensorconfiguration.cpp \
     src/residual.cpp \
     src/reading.cpp \
     src/pluginmetadata.cpp \
     src/oimetadata.cpp \
-    src/oiemitter.cpp \
     src/observation.cpp \
     src/measurementconfig.cpp \
     src/geometry.cpp \
@@ -62,6 +64,7 @@ SOURCES += p_factory.cpp \
     src/featurewrapper.cpp \
     src/feature.cpp \
     src/elementdependencies.cpp \
+    src/element.cpp \
     src/coordinatesystem.cpp \
     src/connectionconfig.cpp \
     src/configuration.cpp \
@@ -81,18 +84,27 @@ SOURCES += p_factory.cpp \
     src/geometry/cylinder.cpp \
     src/geometry/cone.cpp \
     src/geometry/circle.cpp \
-    src/sensorlistener.cpp
+    src/oiemitter/oisimulationemitter.cpp \
+    src/oiemitter/oisensoremitter.cpp \
+    src/oiemitter/oinetworkadjustmentemitter.cpp \
+    src/oiemitter/oifunctionemitter.cpp \
+    src/oiemitter/oiemitter.cpp \
+    src/simulation/uncertaintycomponent.cpp \
+    src/simulation/simulationdata.cpp
+
 
 HEADERS += p_factory.h \
-    lib/openIndyLib/include/global.h \
-    lib/openIndyLib/include/linearalgebra.h \
-    lib/openIndyLib/include/oimat.h \
-    lib/openIndyLib/include/oivec.h \
     testfit.h \
+    lib/openIndyLib/include/oivec.h \
+    lib/openIndyLib/include/oimat.h \
+    lib/openIndyLib/include/linearalgebra.h \
+    lib/openIndyLib/include/global.h \
+    lib/openIndyLib/include/chooselalib.h \
     src/unitconverter.h \
     src/trafoparam.h \
     src/statistic.h \
     src/station.h \
+    src/sensorlistener.h \
     src/sensorcontrol.h \
     src/sensorconfiguration.h \
     src/sensor.h \
@@ -100,7 +112,6 @@ HEADERS += p_factory.h \
     src/reading.h \
     src/pluginmetadata.h \
     src/oimetadata.h \
-    src/oiemitter.h \
     src/observation.h \
     src/measurementconfig.h \
     src/geometry.h \
@@ -129,6 +140,11 @@ HEADERS += p_factory.h \
     src/geometry/cylinder.h \
     src/geometry/cone.h \
     src/geometry/circle.h \
+    src/oiemitter/oisimulationemitter.h \
+    src/oiemitter/oisensoremitter.h \
+    src/oiemitter/oinetworkadjustmentemitter.h \
+    src/oiemitter/oifunctionemitter.h \
+    src/oiemitter/oiemitter.h \
     src/plugin/pi_totalstation.h \
     src/plugin/pi_systemtransformation.h \
     src/plugin/pi_oiplugin.h \
@@ -138,6 +154,8 @@ HEADERS += p_factory.h \
     src/plugin/pi_geodeticfunction.h \
     src/plugin/pi_fitfunction.h \
     src/plugin/pi_constructfunction.h \
-    src/sensorlistener.h
+    src/simulation/uncertaintycomponent.h \
+    src/simulation/simulationmodel.h \
+    src/simulation/simulationdata.h
 
 OTHER_FILES += metaInfo.json
