@@ -4,40 +4,42 @@
 #include <QtGlobal>
 #include <QObject>
 
-#include "pi_oiplugin.h"
+#include "plugin.h"
 
-#include "functionconfiguration.h"
-#include "sensorconfiguration.h"
+using namespace oi;
 
-#include "sensor.h"
-#include "function.h"
-
-#include "pi_networkadjustment.h"
-#include "pi_lasertracker.h"
-#include "pi_totalstation.h"
-#include "pi_constructfunction.h"
-#include "pi_fitfunction.h"
-#include "pi_geodeticfunction.h"
-#include "pi_objecttransformation.h"
-#include "pi_systemtransformation.h"
-
-class OiTemplatePlugin : public QObject, OiPlugin
+class OiTemplatePlugin : public QObject, Plugin
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "de.openIndy.Plugin.v001" FILE "metaInfo.json")
-    Q_INTERFACES(OiPlugin)
+    Q_INTERFACES(Plugin)
     
 public:
     OiTemplatePlugin(QObject *parent = 0);
 
-    QList<Sensor*> createSensors();
-    QList<Function*> createFunctions();
-    QList<NetworkAdjustment*> createNetworkAdjustments();
-    QList<SimulationModel*> createSimulations();
-    Sensor* createSensor(QString name);
-    Function* createFunction(QString name);
-    NetworkAdjustment* createNetworkAdjustment(QString name);
-    SimulationModel* createSimulation(QString name);
+    //##########################################################
+    //create instances of all available plugin types in a plugin
+    //##########################################################
+
+    QList<QPointer<Sensor> > createSensors();
+    QList<QPointer<Function> > createFunctions();
+    QList<QPointer<NetworkAdjustment> > createNetworkAdjustments();
+    QList<QPointer<SimulationModel> > createSimulations();
+    QList<QPointer<Tool> > createTools();
+    QList<QPointer<ExchangeSimpleAscii> > createSimpleAsciiExchanges();
+    QList<QPointer<ExchangeDefinedFormat> > createDefinedFormatExchanges();
+
+    //###################################################
+    //create instances of a plugin type with a given name
+    //###################################################
+
+    QPointer<Sensor> createSensor(const QString &name);
+    QPointer<Function> createFunction(const QString &name);
+    QPointer<NetworkAdjustment> createNetworkAdjustment(const QString &name);
+    QPointer<SimulationModel> createSimulation(const QString &name);
+    QPointer<Tool> createTool(const QString &name);
+    QPointer<ExchangeSimpleAscii> createSimpleAsciiExchange(const QString &name);
+    QPointer<ExchangeDefinedFormat> createDefinedFormatExchange(const QString &name);
 
 };
 

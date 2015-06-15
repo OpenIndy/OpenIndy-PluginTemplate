@@ -1,85 +1,137 @@
 #include "p_factory.h"
 
+using namespace oi;
+
 /*!
  * \brief OiTemplatePlugin::OiTemplatePlugin
  * \param parent
  */
-OiTemplatePlugin::OiTemplatePlugin(QObject *parent):
-    QObject(parent){
+OiTemplatePlugin::OiTemplatePlugin(QObject *parent) : QObject(parent){
 
 }
 
 /*!
  * \brief OiTemplatePlugin::createSensors
- * Returns a list with all sensors
  * \return
  */
-QList<Sensor*> OiTemplatePlugin::createSensors(){
-    QList<Sensor*> resultSet;
-    return resultSet;
+QList<QPointer<Sensor> > OiTemplatePlugin::createSensors(){
+    QList<QPointer<Sensor> > result;
+    return result;
 }
 
 /*!
  * \brief OiTemplatePlugin::createFunctions
- * Returns a list with all functions
  * \return
  */
-QList<Function*> OiTemplatePlugin::createFunctions(){
-    QList<Function*> resultSet;
-    return resultSet;
+QList<QPointer<Function> > OiTemplatePlugin::createFunctions(){
+    QList<QPointer<Function> > result;
+    return result;
 }
 
 /*!
  * \brief OiTemplatePlugin::createNetworkAdjustments
- * Returns a list with all network adjustments
  * \return
  */
-QList<NetworkAdjustment*> OiTemplatePlugin::createNetworkAdjustments(){
-    QList<NetworkAdjustment*> resultSet;
-    return resultSet;
+QList<QPointer<NetworkAdjustment> > OiTemplatePlugin::createNetworkAdjustments(){
+    QList<QPointer<NetworkAdjustment> > result;
+    return result;
 }
 
-QList<SimulationModel *> OiTemplatePlugin::createSimulations()
-{
-    QList<SimulationModel*> resultSet;
-    return resultSet;
+/*!
+ * \brief OiTemplatePlugin::createSimulations
+ * \return
+ */
+QList<QPointer<SimulationModel> > OiTemplatePlugin::createSimulations(){
+    QList<QPointer<SimulationModel> > result;
+    return result;
+}
+
+/*!
+ * \brief OiTemplatePlugin::createTools
+ * \return
+ */
+QList<QPointer<Tool> > OiTemplatePlugin::createTools(){
+    QList<QPointer<Tool> > result;
+    return result;
+}
+
+/*!
+ * \brief OiTemplatePlugin::createSimpleAsciiExchanges
+ * \return
+ */
+QList<QPointer<ExchangeSimpleAscii> > OiTemplatePlugin::createSimpleAsciiExchanges(){
+    QList<QPointer<ExchangeSimpleAscii> > result;
+    return result;
+}
+
+/*!
+ * \brief OiTemplatePlugin::createDefinedFormatExchanges
+ * \return
+ */
+QList<QPointer<ExchangeDefinedFormat> > OiTemplatePlugin::createDefinedFormatExchanges(){
+    QList<QPointer<ExchangeDefinedFormat> > result;
+    return result;
 }
 
 /*!
  * \brief OiTemplatePlugin::createSensor
- * Returns the sensor with the specified name
  * \param name
  * \return
  */
-Sensor* OiTemplatePlugin::createSensor(QString name){
-    Sensor *result = NULL;
-    return result;
+QPointer<Sensor> OiTemplatePlugin::createSensor(const QString &name){
+    return QPointer<Sensor>(NULL);
 }
 
 /*!
  * \brief OiTemplatePlugin::createFunction
- * Returns the function with the specified name
  * \param name
  * \return
  */
-Function* OiTemplatePlugin::createFunction(QString name){
-    Function *result = NULL;
-    return result;
+QPointer<Function> OiTemplatePlugin::createFunction(const QString &name){
+    return QPointer<Function>(NULL);
 }
 
 /*!
  * \brief OiTemplatePlugin::createNetworkAdjustment
- * Returns the network adjustment with the specified name
  * \param name
  * \return
  */
-NetworkAdjustment* OiTemplatePlugin::createNetworkAdjustment(QString name){
-    NetworkAdjustment *result = NULL;
-    return result;
+QPointer<NetworkAdjustment> OiTemplatePlugin::createNetworkAdjustment(const QString &name){
+    return QPointer<NetworkAdjustment>(NULL);
 }
 
-SimulationModel *OiTemplatePlugin::createSimulation(QString name)
-{
-    SimulationModel *result = NULL;
-    return result;
+/*!
+ * \brief OiTemplatePlugin::createSimulation
+ * \param name
+ * \return
+ */
+QPointer<SimulationModel> OiTemplatePlugin::createSimulation(const QString &name){
+    return QPointer<SimulationModel>(NULL);
+}
+
+/*!
+ * \brief OiTemplatePlugin::createTool
+ * \param name
+ * \return
+ */
+QPointer<Tool> OiTemplatePlugin::createTool(const QString &name){
+    return QPointer<Tool>(NULL);
+}
+
+/*!
+ * \brief OiTemplatePlugin::createSimpleAsciiExchange
+ * \param name
+ * \return
+ */
+QPointer<ExchangeSimpleAscii> OiTemplatePlugin::createSimpleAsciiExchange(const QString &name){
+    return QPointer<ExchangeSimpleAscii>(NULL);
+}
+
+/*!
+ * \brief OiTemplatePlugin::createDefinedFormatExchange
+ * \param name
+ * \return
+ */
+QPointer<ExchangeDefinedFormat> OiTemplatePlugin::createDefinedFormatExchange(const QString &name){
+    return QPointer<ExchangeDefinedFormat>(NULL);
 }
